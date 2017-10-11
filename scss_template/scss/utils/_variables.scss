@@ -2,18 +2,19 @@
 $min-width: 320px; 
 $max-width: 1200px; 
 $base-bg: #FFF; 
-$base-font-size: 13px; 
+$base-font-size: 16px; 
 $base-line-height: 18px; 
 $base-font-family: Arial, sans-serif; 
-$custom-font-family: 'Open Sans', sans-serif; 
+$custom-font-family: 'PT Sans', sans-serif; 
 $link-color: #100da9;
 $default-transition:all 0.2s linear;
 
 /* main variables */
 
 //text, titles
-$text-color: #000;
-$title-color: #000;
+$accent-color: #c4944e;
+$text-color: #181818;
+$small-color: #666;
 $title-font-family: $custom-font-family;
 
 $font-size-h1: 36px;
