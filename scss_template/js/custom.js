@@ -9,7 +9,7 @@ $(window).load(function(){
 /* viewport width */
 function viewport(){
 	var e = window, 
-		a = 'inner';
+	a = 'inner';
 	if ( !( 'innerWidth' in window ) )
 	{
 		a = 'client';
@@ -21,21 +21,35 @@ function viewport(){
 $(function(){
 	/* placeholder*/	   
 	$('input, textarea').each(function(){
- 		var placeholder = $(this).attr('placeholder');
- 		$(this).focus(function(){ $(this).attr('placeholder', '');});
- 		$(this).focusout(function(){			 
- 			$(this).attr('placeholder', placeholder);  			
- 		});
- 	});
+		var placeholder = $(this).attr('placeholder');
+		$(this).focus(function(){ $(this).attr('placeholder', '');});
+		$(this).focusout(function(){			 
+			$(this).attr('placeholder', placeholder);  			
+		});
+	});
 	/* placeholder*/
 
 	$('.button-nav').click(function(){
-		$(this).toggleClass('active'), 
+		$(this).toggleClass('button-nav--active'), 
 		$('.main-nav-list').slideToggle(); 
+
 		return false;
 	});
 	
 	/* components */
+
+	$('.header-slider').slick({
+		arrows: true,
+		dots: true,
+		dotsClass: 'header-slider__dots',
+		infinite: true,
+		speed: 400,
+		nextArrow: '<div class="header-slider__arrow header-slider__arrow--left"></div>',
+		prevArrow: '<div class="header-slider__arrow header-slider__arrow--right"></div>',
+		customPaging : function(slider, i) {
+			return '<a class="header-slider__dot"></a>';
+		},
+	});
 	
 	/*
 	

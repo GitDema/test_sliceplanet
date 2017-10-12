@@ -5,19 +5,16 @@
 ================================================================================
 */
 
-/* ICONS SPRITE */
-.mob-home, .login-icon, .mob-login, .loop, .mob-basket, .dropdown-menu-icon, .mob-call, .mob-loop, .slide-arrow-right-active, .slider-arrow-left-active, .slider-arrow-left, .slider-arrow-right, .arrow-down, .arrow-right { display: inline-block; background: url(../img/icons-set.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
-/* END ICONS SPRITE */
-
 header{
 	width:100%;
 	min-width: $min-width;
 	text-align:left;	
 	order: 1;	
 	-webkit-order: 1;
-	.header{
-		padding: 30px 0;
-	}
+}
+
+.wrapper.header{
+	padding: 0 20px 35px 20px;
 }
 
 .header{
@@ -32,12 +29,10 @@ header{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	order: 1;
 	flex: 1 25%;
-	padding: 35px 0 20px 15px;	
+	padding: 40px 0 20px 15px;	
 	border-bottom: 1px solid #dcdede;
-	&__link{
-		/* padding-top: 20px; */
-	}
 	&__subtitle{
 		color: #747688;
 		font-size: 14px;
@@ -50,6 +45,7 @@ header{
 	flex-direction: column;
 	justify-content: center;
 	flex: 1 1 33.33%;
+	order: 2;
 	border-bottom: 1px solid #dcdede;
 }
 .search{
@@ -58,12 +54,16 @@ header{
 		width: 100%;
 		padding: 10px 35px 10px 10px;
 		border: 1px solid #b9b8bd;
-		border-radius: 4px;
+		@include radius(4px);
+		font-size: 16px;
 	}
 	&__btn{
 		position: absolute;
 		right: 10px;
 		top: 10px;
+		background: url(../img/loop.png) no-repeat center;
+		width: 18px;
+		height: 18px;
 	}
 }
 
@@ -72,6 +72,7 @@ header{
 	justify-content: flex-end;
 	align-items: center;
 	flex: 1 1 33.33%;
+	order: 3;
 	flex-direction: row;
 	border-bottom: 1px solid #dcdede;
 }
@@ -98,6 +99,7 @@ header{
 .main-nav{
 	display: flex;
 	flex-basis: 70%;
+	order: 4;
 	border-bottom: 1px solid #dcdede;
 }
 
@@ -121,8 +123,7 @@ header{
 				display: block;
 				top: 3px;
 				left: 15px;
-				background: url(../img/icons-set.png) no-repeat;
-				background-position: -1px -113px;
+				background: url(../img/dropdown-menu-icon.png) no-repeat center;
 				width: 16px;
 				height: 12px;
 			}
@@ -132,8 +133,7 @@ header{
 				display: block;
 				top: 5px;
 				right: 0;
-				background: url(../img/icons-set.png) no-repeat;
-				background-position: -1px -277px;
+				background: url(../img/arrow-down.png) no-repeat center;
 				width: 11px;
 				height: 7px;
 			}
@@ -141,10 +141,11 @@ header{
 	}
 	&__wrap-dropdown{
 		display: none;
-		padding-top: 50px;
+		padding-top: 25px;
 		position: absolute;
-		top: -10px;
+		top: 15px;
 		left: 0;
+		z-index: 10;
 	}
 	&__link{
 		color: $text-color;
@@ -155,7 +156,7 @@ header{
 		text-transform: none;
 		background: #fff;
 		border: 1px solid #ddd;
-		border-radius: 3px;
+		@include radius(3px);
 		box-shadow: 2px 3px 1px rgba(108, 104, 104, 0.33);
 		font-size: 15px;
 		font-weight: 400;
@@ -170,7 +171,7 @@ header{
 				display: block;
 				width: 6px;
 				height: 6px;
-				border-radius: 50%;
+				@include radius(50%);
 				border: 1px solid $accent-color;
 			}
 			&--sub{
@@ -181,8 +182,7 @@ header{
 					right: 14px;
 					display: block;
 					display: inline-block;
-					background: url(../img/icons-set.png) no-repeat;
-					background-position: -16px -161px;
+					background: url(../img/arrow-right.png) no-repeat center;
 					width: 7px;
 					height: 11px;
 				}
@@ -210,7 +210,7 @@ header{
 		padding: 8px 0 10px 0;
 		background-color: #fff;
 		border: 1px solid #ddd;
-		border-radius: 3px;
+		@include radius(3px);
 		box-shadow: 2px 3px 1px rgba(108, 104, 104, 0.33);
 		font-size: 15px;
 		&::before{
@@ -241,7 +241,7 @@ header{
 				display: block;
 				width: 6px;
 				height: 6px;
-				border-radius: 50%;
+				@include radius(50%);
 				border: 1px solid $accent-color;
 			}
 			&:hover{
@@ -263,11 +263,12 @@ header{
 	flex-basis: 30%;
 	justify-content: flex-end;
 	align-items: center;
+	order: 4;
 	text-transform: uppercase;
 	border-bottom: 1px solid #dcdede;
 	&__amount{
 		background-color: $accent-color;
-		border-radius: 50%;
+		@include radius(50%);
 		color: #fff;
 		text-align: center;
 		padding: 1px 4px;
@@ -275,13 +276,12 @@ header{
 			content: '';
 			position: absolute;
 			top :12px;
-			left: 0;
+			left: -5px;
 			padding-left: 30px;
 			display: block;
 			width: 23px;
 			height: 23px;
-			background: url(../img/icons-set.png) no-repeat;
-			background-position: -1px -0px;
+			background: url(../img/basket.png) no-repeat center;
 		}
 	}
 	&__basket,
@@ -304,14 +304,99 @@ header{
 			display: block;
 			width: 19px;
 			height: 17px;
-			background: url(../img/icons-set.png) no-repeat;
-			background-position: -1px -41px;
+			background: url(../img/login.png) no-repeat center;
 		}
 	}
 }
 
+/* mobile menu */
 
-.loop { background-position: -1px -76px; width: 18px; height: 18px; }
+.button-nav{
+	background-color: #3eade2;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	min-width: 55px;
+	min-height: 40px;
+	&__line{
+		position: relative;
+		width: 15px;
+		height: 2px;
+		background-color: #fff;
+		&:before{
+			content: '';
+			display: block;
+			width: 15px;
+			height: 2px;
+			background-color: inherit;
+			position: absolute;
+			top: -5px;
+			left: 0;
+		}
+		&:after{
+			content: '';
+			display: block;
+			width: 15px;
+			height: 2px;
+			background-color: inherit;
+			position: absolute;
+			top: 5px;
+			left: 0;
+		}
+	}
+}
+
+.button-nav--active{
+	>.button-nav__line{
+		@include rotate(46deg);
+		&:before{
+			@include rotate(90deg);
+			top: 0;
+		}
+		&:after{
+			display: none;
+		}
+	}
+}
+
+.small-menu{
+	display: none;
+	justify-content: space-around;
+	align-items: center;
+	flex-grow: 10;
+	min-height: 40px;
+	order: 2;
+	&__item{
+		flex-grow: 1;
+		min-height: 40px;
+		min-width: 40px;
+		.main-nav: all .2s ease-in;
+		&:hover{
+			background-color: #3eade2;
+		}
+	}
+	&__link{
+		display: block;
+		min-height: 40px;
+	}
+	&__home{
+		background: url(../img/mob-home.png) no-repeat center;
+	}
+	&__search{
+		background: url(../img/mob-loop.png) no-repeat center;
+	}
+	&__basket{
+		background: url(../img/mob-basket.png) no-repeat center;
+	}
+	&__login{
+		background: url(../img/mob-login.png) no-repeat center;
+	}
+	&__call{
+		background: url(../img/mob-call.png) no-repeat center;
+	}
+}
+
+/* end mobile menu */
 
 
 
@@ -334,30 +419,3 @@ header{
 @media screen and (max-width: 767px) {
 
 }
-
-
-
-
-
-
-
-
-
-/* SPRITE temp */
-
-
-._basket { background-position: -1px -0px; width: 23px; height: 23px; }
-.mob-home { background-position: -1px -24px; width: 20px; height: 16px; }
-.login-icon { background-position: -1px -41px; width: 19px; height: 17px; }
-.mob-login { background-position: -1px -59px; width: 19px; height: 16px; }
-.loop { background-position: -1px -76px; width: 18px; height: 18px; }
-.mob-basket { background-position: -1px -95px; width: 17px; height: 17px; }
-.dropdown-menu-icon { background-position: -1px -113px; width: 16px; height: 12px; }
-.mob-call { background-position: -1px -126px; width: 16px; height: 17px; }
-.mob-loop { background-position: -1px -144px; width: 16px; height: 16px; }
-.slide-arrow-right-active { background-position: -1px -161px; width: 14px; height: 28px; }
-.slider-arrow-left-active { background-position: -1px -190px; width: 14px; height: 28px; }
-.slider-arrow-left { background-position: -1px -219px; width: 14px; height: 28px; }
-.slider-arrow-right { background-position: -1px -248px; width: 14px; height: 28px; }
-.arrow-down { background-position: -1px -277px; width: 11px; height: 7px; }
-.arrow-right { background-position: -16px -161px; width: 7px; height: 11px; }
